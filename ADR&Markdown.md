@@ -33,8 +33,11 @@ Three approaches are considered:
 ## Decision
 We decided to adopt the asynchronous programming model *(async/await)* to manage the concurrency of our system.
 ## Justification (Why was this option chosen? What are the advantages?)
-
-1. Avoids traditional deadlocks. The asynchronous model does not use multiple threads or parallel processes competing for shared resources. Instead, tasks cooperate by ceding control via await, which eliminates the need for locks and thus reduces the risk of deadlocks to virtually zero.
-2. More predictable execution flow. Unlike multithreading, where the operating system can change the execution context at any time, asynchrony works with a single main thread, and execution is more controlled. This makes concurrent behavior easier to reason about and debug.
-3. Efficiency in I/O tasks. Since many of our operations are input/output (such as file reads, network connections or database queries), asynchrony is ideal. It allows not blocking the main thread while waiting for an external response, improving system efficiency without creating extra threads or processes.
-
+1. Avoid traditional deadlocks. The asynchronous model doesn't use multiple threads or parallel processes competing for shared resources. Instead, tasks cooperate by relinquishing control via await, which eliminates the need for locks and thus reduces the risk of deadlocks to virtually zero.
+2. Predictable execution flow. Unlike multithreading, where the operating system can change the execution context at any time, asynchrony works with a single main thread, and execution is more controlled. This makes concurrent behavior easier to reason about and debug.
+3. Efficiency in I/O tasks. Since many of our operations are input/output (such as file reads, network connections, or database queries), asynchrony is ideal. It allows the main thread not to be blocked while waiting for an external response, improving system efficiency without creating extra threads or processes.
+4. Lower resource consumption. Creating and managing threads or processes involves significant overhead in terms of memory and CPU usage. Asynchrony, on the other hand, uses fewer resources, which translates into greater scalability, especially in web applications or systems with multiple simultaneous connections.
+5. Readability and maintainability. With async/await, code follows a clear, sequential structure, making it easier to write, read, and maintain. This is especially valuable when compared to nested callbacks or the complexity of thread synchronization.
+## Consequences (What does the decision made imply? What should we take into account in the future?):
+1. Practical elimination of deadlocks due to thread blocking, since traditional locks and critical sections are not used.
+2. Risk of "starvation" if a long task doesn't relinquish control in a timely manner; it's necessary to design chunks or use timers to maintain flow.
