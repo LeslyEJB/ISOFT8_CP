@@ -32,3 +32,9 @@ Three approaches are considered:
 
 ## Decision
 We decided to adopt the asynchronous programming model *(async/await)* to manage the concurrency of our system.
+## Justification (Why was this option chosen? What are the advantages?)
+
+1. Avoids traditional deadlocks. The asynchronous model does not use multiple threads or parallel processes competing for shared resources. Instead, tasks cooperate by ceding control via await, which eliminates the need for locks and thus reduces the risk of deadlocks to virtually zero.
+2. More predictable execution flow. Unlike multithreading, where the operating system can change the execution context at any time, asynchrony works with a single main thread, and execution is more controlled. This makes concurrent behavior easier to reason about and debug.
+3. Efficiency in I/O tasks. Since many of our operations are input/output (such as file reads, network connections or database queries), asynchrony is ideal. It allows not blocking the main thread while waiting for an external response, improving system efficiency without creating extra threads or processes.
+
