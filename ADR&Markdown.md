@@ -51,6 +51,6 @@ We decided to adopt the asynchronous programming model *(async/await)* to manage
 - Virgen Jazmin Morales Carrillo
 - Alberto Carlos Navarrete Garcia
 - Alan Ismael Franquez Conchas
-- Lesly Elizabeth Jimenez Burriola
+- Lesly Elizabeth Jimenez Burriola.
 
 ##### *Date:Thursday, May 15, 2025*
