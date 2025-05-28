@@ -10,3 +10,11 @@ def usar_baño(nombre):
     time.sleep(1)
     print(f"{nombre} salió del baño.")
 
+def llamada_ex(nombre):
+    print(f"{nombre} está llamando a su ex...")
+    time.sleep(1)
+    print(f"{nombre} colgó la llamada.")
+
+def cantando(nombre):
+    print(f"{nombre} está cantando una canción dolida...")
+    time.sleep(1)
