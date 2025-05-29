@@ -18,23 +18,41 @@ def llamada_ex(nombre):
 def cantando(nombre):
     print(f"{nombre} está cantando una canción dolida...")
     time.sleep(1)
-    
+
 def ciclo_acciones(drunkards, ciclo):
     print(f"\n------ Ciclo {ciclo + 1} ------")
-    
+
     # Reordenar aleatoriamente los drunkards para variar los turnos
     random.shuffle(drunkards)
-    
+
     # Marcar si el baño o la llamada están ocupados
     ocupado_baño = False
     ocupado_llamada = False
 
     for nombre in drunkards:
         accion = random.choice(["tomar", "usar_baño", "llamada_ex", "cantando"])
-        
+
         # Controlar acciones exclusivas
         if accion == "usar_baño":
             if not ocupado_baño:
                 usar_baño(nombre)
                 ocupado_baño = True
             else:
+                tomar(nombre)  # fallback
+        elif accion == "llamada_ex":
+            if not ocupado_llamada:
+                llamada_ex(nombre)
+                ocupado_llamada = True
+            else:
+                cantando(nombre)  # fallback
+        elif accion == "tomar":
+            tomar(nombre)
+        elif accion == "cantando":
+            cantando(nombre)
+
+# Lista de borrachos
+drunkards = ["Alexis vega", "Gio do santos", "Cristian Calderon", "Marco Fabian", "Carlos peña" ]
+
+# Ejecutar al menos 4 ciclos
+for i in range(4):
+    ciclo_acciones(drunkards, i)
