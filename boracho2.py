@@ -28,3 +28,13 @@ def ciclo_acciones(drunkards, ciclo):
     # Marcar si el baño o la llamada están ocupados
     ocupado_baño = False
     ocupado_llamada = False
+
+    for nombre in drunkards:
+        accion = random.choice(["tomar", "usar_baño", "llamada_ex", "cantando"])
+        
+        # Controlar acciones exclusivas
+        if accion == "usar_baño":
+            if not ocupado_baño:
+                usar_baño(nombre)
+                ocupado_baño = True
+            else:
