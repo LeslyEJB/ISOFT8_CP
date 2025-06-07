@@ -8,3 +8,18 @@ contador_cervezas = {}
 drunkards = ["Alexis Vega", "Gio Do Santos", "Cristian Calderon", "Marco Fabian", "Carlos Peña"]
 for nombre in drunkards:
     contador_cervezas[nombre] = 0
+    
+def sirviendo_cerveza(nombre):
+    print(f"Bartender está sirviendo una cerveza a {nombre}...")
+    time.sleep(1)
+    contador_cervezas[nombre] += 1
+
+def usar_baño(nombre):
+    print(f"{nombre} está en el baño...")
+    time.sleep(1)
+    print(f"{nombre} salió del baño. Baño Libre.")
+
+def llamada_ex(nombre):
+    print(f"{nombre} está llamando a su ex...")
+    time.sleep(1)
+    print(f"{nombre} colgó la llamada.")
