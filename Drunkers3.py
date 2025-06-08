@@ -35,3 +35,23 @@ def ciclo_acciones(drunkards, ciclo):
     
     ocupado_baño = False
     ocupado_llamada = False
+
+    for nombre in drunkards:
+        accion = random.choice(["servir", "usar_baño", "llamada_ex", "cantando"])
+        
+        if accion == "usar_baño":
+            if not ocupado_baño and contador_cervezas[nombre] >= 1:
+                usar_baño(nombre)
+                ocupado_baño = True
+            else:
+                sirviendo_cerveza(nombre)  # fallback: le sirven otra
+        elif accion == "llamada_ex":
+            if not ocupado_llamada:
+                llamada_ex(nombre)
+                ocupado_llamada = True
+            else:
+                cantando(nombre)
+        elif accion == "servir":
+            sirviendo_cerveza(nombre)
+        elif accion == "cantando":
+            cantando(nombre)
