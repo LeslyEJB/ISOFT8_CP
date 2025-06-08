@@ -23,3 +23,15 @@ def llamada_ex(nombre):
     print(f"{nombre} está llamando a su ex...")
     time.sleep(1)
     print(f"{nombre} colgó la llamada.")
+
+def cantando(nombre):
+    print(f"{nombre} está cantando una canción dolida...")
+    time.sleep(1)
+
+def ciclo_acciones(drunkards, ciclo):
+    print(f"\n------ Ciclo {ciclo + 1} ------")
+    
+    random.shuffle(drunkards)
+    
+    ocupado_baño = False
+    ocupado_llamada = False
