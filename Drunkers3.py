@@ -55,3 +55,15 @@ def ciclo_acciones(drunkards, ciclo):
             sirviendo_cerveza(nombre)
         elif accion == "cantando":
             cantando(nombre)
+
+# Ejecutar 4 ciclos
+for i in range(4):
+    ciclo_acciones(drunkards, i)
+
+# Mostrar resumen de cervezas
+# Mostrar un título para la lista de cervezas
+print("\n--- Cervezas tomadas por cada borracho ---")
+
+for nombre in contador_cervezas:
+    cervezas = contador_cervezas[nombre]
+    print(nombre + ": " + str(cervezas) + " cerveza(s)")
