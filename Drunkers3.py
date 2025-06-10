@@ -17,7 +17,7 @@ def sirviendo_cerveza(nombre):
 def usar_baño(nombre):
     print(f"{nombre} está en el baño...")
     time.sleep(1)
-    print(f"{nombre} salió del baño. Baño Libre.")
+    print(f"Bartender: Baño libre!")
 
 def llamada_ex(nombre):
     print(f"{nombre} está llamando a su ex...")
