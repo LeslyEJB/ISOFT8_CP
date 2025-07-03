@@ -49,3 +49,30 @@ print("🍻 INICIO DE LA SIMULACIÓN - DRUNKARD'S PARALLELISM 🍻")
 print(f"Mesa 1 (Core1): {', '.join(borrachos_core1)}")
 print(f"Mesa 2 (Core2): {', '.join(borrachas_core2)}")
 print("-" * 70)
+
+# todo BUCLE PRINCIPAL DE SIMULACIÓN (5 CICLOS)
+
+for ciclo in range(1, num_ciclos + 1):
+    print(f"\n--- CICLO DE EJECUCIÓN NÚMERO {ciclo} ---")
+    time.sleep(1)
+
+    persona_ocupada_1 = None
+    persona_ocupada_2 = None
+
+    if ciclo % 2 != 0:  #? Ciclo impar (1, 3, 5)
+        print("Asignación: [Core1 -> PedirCerveza] y [Core2 -> Rockola]")
+        
+        persona_ocupada_1 = random.choice(borrachos_core1)
+        PedirCerveza(persona_ocupada_1, "Core1")
+
+        persona_ocupada_2 = random.choice(borrachas_core2)
+        Rockola(persona_ocupada_2, "Core2")
+
+    else:  #? Ciclo par (2, 4)
+        print("Asignación: [Core2 -> PedirCerveza] y [Core1 -> Rockola]")
+
+        persona_ocupada_1 = random.choice(borrachas_core2)
+        PedirCerveza(persona_ocupada_1, "Core2")
+
+        persona_ocupada_2 = random.choice(borrachos_core1)
+        Rockola(persona_ocupada_2, "Core1")
