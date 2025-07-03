@@ -76,3 +76,16 @@ for ciclo in range(1, num_ciclos + 1):
 
         persona_ocupada_2 = random.choice(borrachos_core1)
         Rockola(persona_ocupada_2, "Core1")
+#* Crear la lista de personas que NO están ocupadas.
+    todos_los_presentes = borrachos_core1 + borrachas_core2
+    personas_disponibles = [p for p in todos_los_presentes if p not in [persona_ocupada_1, persona_ocupada_2]]
+
+    #* Se elige aleatoriamente una de las acciones compartidas.
+    accion_elegida = random.choice(acciones_compartidas)
+    
+    #* Se ejecuta la acción para el grupo de personas disponibles, pasando la lista.
+    accion_elegida(personas_disponibles)
+    
+    print("-" * 70)
+    time.sleep(2.5)
+
