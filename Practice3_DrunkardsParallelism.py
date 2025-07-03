@@ -36,3 +36,16 @@ def Bailar(quienes_bailan):
         core = "Core1" if "Borracho" in persona else "Core2"
         print(f"💃 {persona} del {core} está bailando.")
         time.sleep(0.1) # Pequeña pausa para simular una lista
+
+# todo CONFIGURACIÓN DE LA SIMULACIÓN
+
+borrachos_core1 = [f"Borracho {i}" for i in range(1, 7)]
+borrachas_core2 = [f"Borrachita {i}" for i in range(1, 7)]
+num_ciclos = 5
+
+acciones_compartidas = [Cantar, Bailar]
+
+print("🍻 INICIO DE LA SIMULACIÓN - DRUNKARD'S PARALLELISM 🍻")
+print(f"Mesa 1 (Core1): {', '.join(borrachos_core1)}")
+print(f"Mesa 2 (Core2): {', '.join(borrachas_core2)}")
+print("-" * 70)
